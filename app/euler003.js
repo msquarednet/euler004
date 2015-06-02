@@ -1,42 +1,42 @@
-var Euler003 = {
+var Euler004 = {
 
-    isPrime: function(num) {
-        if (Euler003.getFactors(num).length===2 && num>1) {return true;}
-        return false;
-    },
-    getFactors: function (num) {
-        var factors = [];
-        for (var i = 1; i <= Math.floor(Math.sqrt(num)); i += 1) {
-            if (num % i === 0) {
-                factors.push(i);
-                if (num / i !== i) {factors.push(num / i);}
+    isPalindrome: function(num) {
+        var bool=true;
+        if (num===undefined) {return false;}
+        var num_arr = num.toString().split('');         //console.log(num_arr);
+        for (var i=0,l=num_arr.length; i<(l-i); i++) {  //console.log(i, num_arr[i], num_arr[l-1-i]);
+            if (num_arr[i] !== num_arr[l-1-i]) {
+                bool=false; break;
             }
         }
-        factors.sort(function(a, b){return a - b;});  // numeric sort
-        return factors;
+        return bool;
     },
-    getPrimeFactors: function(factors) {
-        var primefactors = [];
-        if (factors) {
-            for (var i=0, l=factors.length; i<l; i++) {
-              if (Euler003.isPrime(factors[i])) {primefactors.push(factors[i])}
-            }            
+    getSeed: function(digits) {
+        var numstr = '';
+        for (var i=0; i<digits; i++) {
+            numstr+='9';
         }
-        return primefactors;
+        return Number(numstr);
     },
-    getLargestPrimeFactor: function(num) {    //get largest prime factor of 600851475143
-        var factors  = Euler003.getFactors(num);
-        var primefactors = Euler003.getPrimeFactors(factors);
+    getLargestPalindrome: function(num) {    //Find the largest palindrome made from the product of two 3-digit numbers
+        var pal_arr = [];
+        var ii = Euler004.getSeed(num);
+        var jj = Euler004.getSeed(num);
+        for (var i=ii; i>=1; i--) {
+            for (var j=jj; j>=1; j--) {                //console.log(i, j, i*j); 
+                if (pal_arr.length>0) {break;}
+                if (Euler004.isPalindrome(i*j)) {
+                    pal_arr.push(i*j);
+                    if (pal_arr.length>0) {break;}
+                }
+            }
+        }
         //document.querySelector('input[name=answer]').value = sum;  
-        //console.log(factors);
-        //console.log(primefactors);
-        return primefactors[primefactors.length-1];
+        //console.log(pal_arr);
+        return pal_arr[0];
     }
     
 };
 console.log("FOOBAR!!!!!!!!!!!!!!!!!!!!!");
-// console.log(Euler003.getFactors(13195));
-// console.log( Euler003.getPrimeFactors( Euler003.getFactors(13195) ) );
-// console.log(Euler003.getFactors(600851475143));
-// console.log( Euler003.getPrimeFactors( Euler003.getFactors(600851475143) ) );
-// console.log(Euler003.getLargestPrimeFactor(600851475143));
+//console.log(Euler004.isPalindrome());
+//Euler004.getLargestPalindrome(3);   //90909

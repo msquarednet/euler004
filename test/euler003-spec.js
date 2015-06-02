@@ -1,61 +1,59 @@
-describe("Euler003", function() {
+describe("Euler004", function() {
     
     it('exists', function() {
-        expect(Euler003).toBeDefined();
+        expect(Euler004).toBeDefined();
     });
 
-    describe("Euler003.isPrime", function() {
+    describe("Euler004.isPalindrome", function() {
         it('exists', function() {
-            expect(Euler003.isPrime).toBeDefined();
+            expect(Euler004.isPalindrome).toBeDefined();
         });        
-        it("isPrime() returns false", function() {
-            expect(Euler003.isPrime()).toBe(false);
+        it("isPalindrome() returns false", function() {
+            expect(Euler004.isPalindrome()).toBe(false);
         });
-        it("isPrime(13) returns true", function() {
-            expect(Euler003.isPrime(13)).toBe(true);
+        it("isPalindrome(121) returns true", function() {
+            expect(Euler004.isPalindrome(121)).toBe(true);
         });
-        it("isPrime(12) returns false", function() {
-            expect(Euler003.isPrime(12)).toBe(false);
+        it("isPalindrome(122) returns false", function() {
+            expect(Euler004.isPalindrome(122)).toBe(false);
+        });
+        it("isPalindrome('aba') returns true", function() {
+            expect(Euler004.isPalindrome('aba')).toBe(true);
+        });
+
+    });
+
+    describe("Euler004.getSeed", function() {
+        it('exists', function() {
+            expect(Euler004.getSeed()).toBeDefined();
+        });
+        it("getSeed() returns 0", function() {
+            expect(Euler004.getSeed()).toEqual(0);
+        });
+        it("getSeed(1) returns 9", function() {
+            expect(Euler004.getSeed(1)).toEqual(9);
+        });
+        it("getSeed(2) returns 99", function() {
+            expect(Euler004.getSeed(2)).toEqual(99);
         });
     });
-    
-    describe("Euler003.getFactors", function() {
+
+    describe("Euler004.getLargestPalindrome", function() {
         it('exists', function() {
-            expect(Euler003.getFactors).toBeDefined();
+            expect(Euler004.getLargestPalindrome).toBeDefined();
         });
-        it("getFactors() returns empty array", function() {
-            expect(Euler003.getFactors().length).toEqual(0);
+        it("getLargestPalindrome() returns undefined", function() {
+            expect(Euler004.getLargestPalindrome()).toEqual(undefined);
         });
-        it("getFactors(10) returns [1,2,5,10]", function() {
-            expect(Euler003.getFactors(10)).toEqual([1,2,5,10]);
+        it("getLargestPalindrome(1) returns 9", function() {
+            expect(Euler004.getLargestPalindrome(1)).toEqual(9);
         });
-    });
-    
-    describe("Euler003.getPrimeFactors", function() {
-        it('exists', function() {
-            expect(Euler003.getPrimeFactors).toBeDefined();
+        it("getLargestPalindrome(2) returns 9009", function() {
+            expect(Euler004.getLargestPalindrome(2)).toEqual(9009);
         });
-        it("getPrimeFactors() returns empty array", function() {
-            expect(Euler003.getPrimeFactors().length).toEqual(0);
-        });
-        it("getPrimeFactors([1,2,5,10]) returns [2,5]", function() {
-            expect(Euler003.getPrimeFactors([1,2,5,10])).toEqual([2,5]);
-        });
-    });
-    
-    describe("Euler003.getLargestPrimeFactor", function() {
-        it('exists', function() {
-            expect(Euler003.getLargestPrimeFactor).toBeDefined();
-        });
-        it("getLargestPrimeFactor() returns undefined", function() {
-            expect(Euler003.getLargestPrimeFactor()).toEqual(undefined);
-        });
-        it("getLargestPrimeFactor(10) returns 5", function() {
-            expect(Euler003.getLargestPrimeFactor(10)).toEqual(5);
-        });
-        it("getLargestPrimeFactor(600851475143) returns 6857", function() {
-            expect(Euler003.getLargestPrimeFactor(600851475143)).toEqual(6857);
-        });
+        it("getLargestPalindrome(3) returns 90909", function() {
+            expect(Euler004.getLargestPalindrome(3)).toEqual(90909);
+        });    
     });    
     
 });
