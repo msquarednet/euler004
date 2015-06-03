@@ -51,8 +51,8 @@ describe("Euler004", function() {
         it("getLargestPalindrome(2) returns 9009", function() {
             expect(Euler004.getLargestPalindrome(2)).toEqual(9009);
         });
-        it("getLargestPalindrome(3) returns 90909", function() {
-            expect(Euler004.getLargestPalindrome(3)).toEqual(90909);
+        it("getLargestPalindrome(3) returns 906609", function() {
+            expect(Euler004.getLargestPalindrome(3)).toEqual(906609);
         });    
     });    
     

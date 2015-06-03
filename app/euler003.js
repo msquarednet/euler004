@@ -23,15 +23,18 @@ var Euler004 = {
         var ii = Euler004.getSeed(num);
         var jj = Euler004.getSeed(num);
         for (var i=ii; i>=1; i--) {
-            for (var j=jj; j>=1; j--) {                //console.log(i, j, i*j); 
-                if (pal_arr.length>0) {break;}
+            for (var j=jj; j>=1; j--) {                //
+                //console.log(i, j, i*j); 
+                //if (pal_arr.length>0) {break;}
                 if (Euler004.isPalindrome(i*j)) {
                     pal_arr.push(i*j);
-                    if (pal_arr.length>0) {break;}
+                    //if (pal_arr.length>0) {break;}
                 }
             }
         }
         //document.querySelector('input[name=answer]').value = sum;  
+        pal_arr.sort(function(a, b){return b-a;});  // numeric sort
+
         //console.log(pal_arr);
         return pal_arr[0];
     }
@@ -39,4 +42,4 @@ var Euler004 = {
 };
 console.log("FOOBAR!!!!!!!!!!!!!!!!!!!!!");
 //console.log(Euler004.isPalindrome());
-//Euler004.getLargestPalindrome(3);   //90909
+console.log(Euler004.getLargestPalindrome(3));   //906609 = 993 * 913
